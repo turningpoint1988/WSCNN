@@ -1,0 +1,4 @@
+/$your_path/example/data/test.h5.batch1
+/$your_path/example/data/test.h5.batch2
+/$your_path/example/data/test.h5.batch3
+/$your_path/example/data/test.h5.batch4

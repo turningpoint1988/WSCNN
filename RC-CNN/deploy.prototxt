@@ -1,0 +1,88 @@
+name: "RC-CNN"
+layer {
+  name: "data"
+  type: "Input"
+  top: "data"
+  input_param { 
+	shape { 
+		dim: 100
+		dim: 4
+		dim: 1
+		dim: 422
+	} 
+  }
+}
+layer {
+  name: "conv1"
+  type: "Convolution"
+  bottom: "data"
+  top: "conv1"
+  convolution_param {
+	num_output: 16
+    kernel_h: 1
+	kernel_w: 24
+	stride_h: 1
+	stride_w: 1
+	pad_h: 0
+	pad_w: 12
+  }
+}
+layer {
+  name: "relu1"
+  type: "ReLU"
+  bottom: "conv1"
+  top: "conv1"
+}
+layer {
+  name: "pool1"
+  type: "Pooling"
+  bottom: "conv1"
+  top: "pool1"
+  pooling_param {
+    pool: MAX
+	kernel_h: 1
+	kernel_w: 423
+	stride_h: 1
+	stride_w: 1
+  }
+}
+layer {
+  name: "fc1"
+  type: "InnerProduct"
+  bottom: "pool1"
+  top: "fc1"
+  inner_product_param {
+    num_output: 32
+  }
+}
+layer{
+  name: "relu2"
+  type: "ReLU"
+  bottom: "fc1"
+  top: "fc1"
+}
+
+layer {
+  name: "drop1"
+  type: "Dropout"
+  bottom: "fc1"
+  top: "fc1"
+  dropout_param{
+    dropout_ratio: 0.5
+  }
+}
+layer {
+  name: "fc2"
+  type: "InnerProduct"
+  bottom: "fc1"
+  top: "fc2"
+  inner_product_param {
+    num_output: 2
+  }
+}
+layer {
+  name: "softmax"
+  type: "Softmax"
+  bottom: "fc2"
+  top: "prob"
+}
