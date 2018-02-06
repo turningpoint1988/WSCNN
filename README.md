@@ -16,7 +16,7 @@ In the RC-CNN/ directory, the script rc-cnn.py, which incorparates the reverse-c
 The trainval.prototxt is for training RC-CNN, and the deploy.prototxt is for testing RC-CNN.
 
 ## Data preparation for WSCNN
-In the WSCNN/ directory, the script wscnn.py, which also incorparates the reverse-complement mode, is for tranforming DNA seqences to the weakly-supervised data format whose data shape is N*C*H*W (N denotes the number of bags, and C=4 denotes four channels, and H denotes the number of instances per bag, and W denotes the length of instnces).
+In the WSCNN/ directory, the script wscnn.py, which also incorparates the reverse-complement mode, is for tranforming DNA seqences to the weakly-supervised data format whose data shape is N**C**H**W (N denotes the number of bags, and C=4 denotes four channels, and H denotes the number of instances per bag, and W denotes the length of instnces).
 
 + Usage example:
 	```
@@ -28,4 +28,4 @@ In the WSCNN/ directory, the script wscnn.py, which also incorparates the revers
 	python wscnn.py -h
 	```
 The four files (Max, Average, Linear-Regression, and Top-Bottom) correspond to the four fusion methods, where the trainval.prototxt is for training WSCNN, and the deploy.prototxt is for testing WSCNN. 
-In the WSCNN/Top-Bottom/caffe-scripts/ directory, all scripts are the implementation of Top-Bottom Instances method on the Caffe platform.
+In the WSCNN/Top-Bottom/caffe-scripts/ directory, the scripts are corresponding to the implementation of Top-Bottom Instances method on the Caffe platform.
