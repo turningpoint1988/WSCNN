@@ -1,1 +1,1 @@
-## Weakly-supervised convolutional neural network for predicting protein-DNA binding (WSCNN)
+# Weakly-supervised convolutional neural network for predicting protein-DNA binding (WSCNN)
