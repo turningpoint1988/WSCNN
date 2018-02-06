@@ -16,7 +16,7 @@ In the RC-CNN/ directory, the script rc-cnn.py, which incorporates the reverse-c
 The trainval.prototxt is for training RC-CNN, and the deploy.prototxt is for testing RC-CNN.
 
 ## Data preparation for WSCNN
-In the WSCNN/ directory, the script wscnn.py, which also incorporates the reverse-complement mode, is for transforming DNA sequences to the weakly-supervised data whose size is N * C * H * W (N denotes the number of bags (sequences), and C (=4) denotes the four channels {A, C, G, T}, and H denotes the number of instances per bag, and W denotes the length of instnces).
+In the WSCNN/ directory, the script wscnn.py, which also incorporates the reverse-complement mode, is for transforming DNA sequences to the weakly-supervised data, whose size is N * C * H * W (N denotes the number of bags (sequences), and C (=4) denotes the four channels {A, C, G, T}, and H denotes the number of instances per bag, and W denotes the length of instnces).
 
 + Usage example:
 	```
