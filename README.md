@@ -6,12 +6,12 @@ In the RC-CNN/ directory, the script rc-cnn.py, which incorporates the reverse-c
 
 + Usage example:
 	```
-	python rc-cnn.py example/train.tsv example/train_target.tsv example/data/train.h5 -k 24
-	python rc-cnn.py example/test.tsv example/test_target.tsv example/data/test.h5 -k 24
+	python rccnn.py example/train.tsv example/train_target.tsv example/data/train.h5 -k 24
+	python rccnn.py example/test.tsv example/test_target.tsv example/data/test.h5 -k 24
 	```
 + Type the following for details on other optional arguments:
 	```
-	python rc-cnn.py -h
+	python rccnn.py -h
 	```
 The trainval.prototxt is for training RC-CNN, and the deploy.prototxt is for testing RC-CNN.
 
