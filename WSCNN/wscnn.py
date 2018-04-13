@@ -31,14 +31,13 @@ def reverseComplement(sequence):
 	return (sequence_re)
 
 def embed(seq,mapper,worddim,instance_len,instance_stride,kernelsize):
-	seq_len = len(seq)
-	instance_num = np.ceil(float(seq_len-instance_len)/instance_stride) + 1
-	supplement_len = ((instance_num - 1)*instance_stride + instance_len) - seq_len
-	seq = seq + ['N']*int(supplement_len)
+	
+	instance_num = int((len(seq)-instance_len)/instance_stride) + 1
 	bag = []
-	for i in range(0,len(seq),instance_stride):
-		instance_fw = seq[i:i+instance_len]
-		if len(instance_fw) < instance_len: break
+	for i in range(instance_num):
+		instance_fw = seq[i*instance_stride:i*instance_stride+instance_len]
+		if len(instance_fw) < instance_len:
+			print >> sys.stderr, "the length of the instance is not right."; sys.exit(1)
 		instance_bw = reverseComplement(instance_fw)
 		instance = instance_fw + ['N']*kernelsize + instance_bw
 		bag.append(instance)
@@ -75,13 +74,6 @@ def convert(infile,labelfile,outfile,mapper,worddim,batchsize,labelname,dataname
             t_outfile = outfile + '.batch' + str(batchnum)
             seq2feature(seqdata,mapper,label,t_outfile,worddim,labelname,dataname,instance_len,instance_stride,kernelsize)
     return batchnum
-
-def manifest(out_filename,batchnum,prefix):
-    locfile = out_filename.split('.')[0] + '.txt'
-    with open(locfile,'w') as f:
-        for i in range(batchnum):
-            f.write('.'.join(['/'.join([prefix]+out_filename.split('/')[-2:]),'batch'+str(i+1)])+'\n')
-
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Convert sequence and target for Caffe")
