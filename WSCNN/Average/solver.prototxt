@@ -6,7 +6,7 @@ momentum: 0.9
 delta: 1e-6
 lr_policy: "fixed"
 display: 500
-max_iter: 6000
+max_iter: 4000
 weight_decay: 0.0005
 regularization_type: "L2"
 snapshot: 500
